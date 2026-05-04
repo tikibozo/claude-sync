@@ -202,7 +202,7 @@ func (c *Client) List(ctx context.Context, prefix string) ([]storage.ObjectInfo,
 		key := r.Href
 		if idx := strings.Index(key, c.pathPrefix+"/"); idx >= 0 {
 			key = key[idx+len(c.pathPrefix)+1:]
-		} else if strings.HasPrefix(key, collectionBase) {
+		} else {
 			key = strings.TrimPrefix(key, collectionBase)
 		}
 		key = strings.TrimLeft(key, "/")
